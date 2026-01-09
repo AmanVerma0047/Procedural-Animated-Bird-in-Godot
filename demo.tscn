@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3m34w7pfy54p"]
+
+[ext_resource type="Script" uid="uid://t1fd2t4ji0ml" path="res://demo.gd" id="1_5hfv0"]
+[ext_resource type="Texture2D" uid="uid://crv27p4vo6x7s" path="res://assets/textures/body3.png" id="2_m0rpm"]
+[ext_resource type="Texture2D" uid="uid://cres1qx4coj0e" path="res://assets/textures/bird wings4.png" id="3_m0rpm"]
+
+[sub_resource type="Curve" id="Curve_m0rpm"]
+_data = [Vector2(0, 0.3539157), 0.0, 1.5703436, 0, 0, Vector2(0.23272727, 1), 0.0, 0.0, 0, 0, Vector2(0.36727273, 1), 0.0, 0.0, 0, 0, Vector2(0.7672728, 0.26642853), 0.0, 0.0, 0, 0, Vector2(0.9927272, 1), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_0bhed"]
+_data = [Vector2(0.47999996, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[node name="Demo" type="Node2D"]
+script = ExtResource("1_5hfv0")
+amplitude = 118.0
+flapping_speed = 2.6
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -627.0
+offset_top = -368.0
+offset_right = 632.0
+offset_bottom = 376.0
+color = Color(3.4894794e-07, 0.1712394, 0.24730298, 1)
+
+[node name="body" type="Line2D" parent="."]
+visible = false
+position = Vector2(0, 56)
+points = PackedVector2Array(0, -112, 0, -88, 0, -48, 0, 16, 0, 48)
+width = 50.0
+width_curve = SubResource("Curve_m0rpm")
+default_color = Color(0.41960785, 0.53333336, 0.8156863, 1)
+texture_mode = 1
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="bird" type="Sprite2D" parent="."]
+position = Vector2(-192, 96.00001)
+scale = Vector2(4.3636365, 4.0000005)
+texture = ExtResource("2_m0rpm")
+
+[node name="wings" type="Line2D" parent="bird"]
+position = Vector2(0, -3.9999998)
+scale = Vector2(0.22916667, 0.24999999)
+points = PackedVector2Array(-126, 0, -80, -8, -56, -8, 0, 0, 56, -8, 88, -8, 128, 0)
+width = 100.0
+width_curve = SubResource("Curve_0bhed")
+texture = ExtResource("3_m0rpm")
+texture_mode = 2
+
+[node name="bird2" type="Sprite2D" parent="."]
+position = Vector2(0, 16)
+scale = Vector2(4.3636365, 4.0000005)
+texture = ExtResource("2_m0rpm")
+
+[node name="wings" type="Line2D" parent="bird2"]
+position = Vector2(0, -3.9999998)
+scale = Vector2(0.22916667, 0.24999999)
+points = PackedVector2Array(-126, 0, -80, -8, -56, -8, 0, 0, 56, -8, 88, -8, 128, 0)
+width = 100.0
+width_curve = SubResource("Curve_0bhed")
+texture = ExtResource("3_m0rpm")
+texture_mode = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]

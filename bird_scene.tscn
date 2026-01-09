@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5ehd2kh3py22"]
+
+[ext_resource type="Script" uid="uid://bdna7fgrpyk57" path="res://bird_scene.gd" id="1_f3jpm"]
+
+[node name="BirdScene" type="Node2D"]
+script = ExtResource("1_f3jpm")
+scale_x = 228.0
+scale_y = 192.0
+step = 1.37
+FLAPPING_SPEED = 8.0
